@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flowing Harmony – Keramik von Jessica Mehnert</title>
+  <meta name="description" content="Flowing Harmony – Handgetöpferte Keramik von Jessica Mehnert. Galerie mit Fotos und kurzen Beschreibungen, ohne Shop.">
+  <meta property="og:title" content="Keramik – Galerie" />
+  <meta property="og:description" content="Handgetöpferte Keramik – Fotos und kurze Beschreibungen." />
+  <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="light dark">
+  <style>
+    :root{ --bg:#faf7f2; --fg:#1f2937; --muted:#6b7280; --card:#ffffff; --accent:#9c6644; --accent-2:#ddb892; }
+    @media (prefers-color-scheme: dark){ :root{ --bg:#0b0b0c; --fg:#e5e7eb; --muted:#9ca3af; --card:#111113; --accent:#f0a97a; --accent-2:#7a5d4a; } }
+    *{box-sizing:border-box}
+    body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans"; background:var(--bg); color:var(--fg);} 
+    .container{max-width:1100px; margin:0 auto; padding:16px;} @media (max-width:640px){ .container{padding:14px;} }
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px;}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
+    .logo{width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg, var(--accent), var(--accent-2)); display:grid; place-items:center; color:white; font-weight:700} @media (max-width:640px){ .logo{width:36px; height:36px;} }
+    nav a{color:var(--fg); text-decoration:none; margin-left:16px; opacity:.85}
+    nav a:hover{opacity:1; text-decoration:underline; text-underline-offset:3px}
+    .hero{margin:32px 0 16px; display:grid; gap:16px}
+    .hero h1{font-size:clamp(28px,4vw,44px); margin:0}
+    .hero p{color:var(--muted); margin:0}
+    .notice{background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:14px; padding:14px 16px;}
+    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px;}
+    .card{background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:14px; overflow:hidden; display:flex; flex-direction:column}
+    .card figure{margin:0}
+    .card img{width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; display:block; background:#e5e7eb}
+    .card .text{padding:12px 14px}
+    .card h3{margin:0 0 6px; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    footer{margin:36px 0 16px; color:var(--muted); font-size:14px}
+    dialog{border:none; padding:0; border-radius:16px; max-width:min(92vw,1000px); background:var(--card);} 
+    .lightbox{position:relative}
+    .lightbox img{width:100%; height:auto; display:block}
+    .lightbox .info{padding:12px 14px}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    .close{position:absolute; top:10px; right:10px; background:rgba(0,0,0,.6); color:#fff; border:none; border-radius:999px; width:36px; height:36px; cursor:pointer}
+    .cta{display:inline-block; padding:10px 14px; border-radius:10px; background:var(--accent); color:#fff; text-decoration:none}
+    .cta:hover{filter:brightness(1.05)}
+    .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px}
+    .tag{font-size:12px; padding:4px 8px; background:rgba(0,0,0,.06); border-radius:999px}
+
+    /* Floating Edit-Button (nur im Edit-Modus sichtbar) */
+    .editbar{position:fixed; right:12px; bottom:12px; display:none; gap:8px; z-index:10}
+    .editbar button{background:var(--accent); color:#fff; border:none; border-radius:10px; padding:10px 12px; cursor:pointer}
+    .editbar button.secondary{background:#374151}
+    .hint{font-size:12px; color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true">⚱️</div>
+        <div>
+          <strong id="site-title" contenteditable="false">Flowing Harmony – Keramik von Jessica Mehnert</strong><br>
+          <small id="site-sub" style="color:var(--muted)" contenteditable="false">Handgetöpferte Einzelstücke</small>
+        </div>
+      </a>
+      <nav>
+        <a href="#galerie">Galerie</a>
+        <a href="#ueber">Über mich</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1 id="hero-title" contenteditable="false">Willkommen in meiner Keramik‑Galerie</h1>
+      <p id="hero-text" contenteditable="false">Hier zeige ich eine Auswahl meiner aktuellen Stücke. Kein Shop – nur Anschauen & Inspiration. Wenn dir etwas gefällt, schreib mir gern.</p>
+      <div class="notice">Tipp: Für den Bearbeitungsmodus hänge **?edit=harmonie-2025** an die Adresse an (z. B. flowing-harmony.de/?edit=harmonie-2025). Nur mit dem Schlüssel ist Editieren möglich. Auf dem Handy kannst du Bilder nun aus der Galerie **oder** mit der Kamera hinzufügen. <span class="hint">(Speichern‑Button unten rechts)</span>
+        <a class="cta" href="#kontakt" style="margin-left:10px">Kontakt aufnehmen</a>
+      </div>
+    </section>
+
+    <section id="galerie" aria-label="Galerie" class="grid">
+      <!-- Jede Karte ist ein Werk. Im Edit‑Modus kannst du per "+ Bild" neue Karten hinzufügen. -->
+      <article class="card">
+        <figure>
+          <img loading="lazy" src="images/beispiel-1.jpg" alt="Steinzeugschale in warmen Tönen" onclick="openLightbox(this)"/>
+        </figure>
+        <div class="text">
+          <h3 contenteditable="false">Schale „Wellenrand“</h3>
+          <p contenteditable="false">Steinzeug, 18 cm · Ascheglasur, reduzierend gebrannt</p>
+          <div class="tags"><span class="tag" contenteditable="false">Schale</span><span class="tag" contenteditable="false">Steinzeug</span><span class="tag" contenteditable="false">Ascheglasur</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure>
+          <img loading="lazy" src="images/beispiel-2.jpg" alt="Vase mit matter, weißer Glasur" onclick="openLightbox(this)"/>
+        </figure>
+        <div class="text">
+          <h3 contenteditable="false">Vase „Nordlicht“</h3>
+          <p contenteditable="false">Porzellan, 22 cm · matte Glasur, innen transparent</p>
+          <div class="tags"><span class="tag" contenteditable="false">Vase</span><span class="tag" contenteditable="false">Porzellan</span></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <figure>
+          <img loading="lazy" src="images/beispiel-3.jpg" alt="Tasse mit Henkel, blau gesprenkelt" onclick="openLightbox(this)"/>
+        </figure>
+        <div class="text">
+          <h3 contenteditable="false">Tasse „Morgentau“</h3>
+          <p contenteditable="false">Steinzeug, 300 ml · gesprenkelte Glasur</p>
+          <div class="tags"><span class="tag" contenteditable="false">Tasse</span><span class="tag" contenteditable="false">Steinzeug</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section id="ueber" class="container" style="padding:32px 0 8px">
+      <h2>Über mich</h2>
+      <p id="about-text" contenteditable="false">Ich töpfere in kleinen Serien und als Unikate. Mich faszinieren klare Formen, natürliche Glasuren und Stücke, die im Alltag Freude machen.</p>
+    </section>
+
+    <section id="kontakt" class="container" style="padding:8px 0 24px">
+      <h2>Kontakt</h2>
+      <p id="contact-text" contenteditable="false">Für Anfragen oder Ausstellungen schreib mir gern eine E‑Mail: <a href="mailto:jessica@flowing-harmony.de">jessica@flowing-harmony.de</a> – oder folge mir auf Instagram: <a href="https://instagram.com/DEINACCOUNT" target="_blank" rel="noopener">@DEINACCOUNT</a></p>
+    </section>
+
+    <footer>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center; justify-content:space-between">
+        <div>
+          © <span id="year"></span> Flowing Harmony – Keramik von Jessica Mehnert · <a href="#impressum" style="color:inherit">Impressum</a>
+        </div>
+        <div style="opacity:.85">Mit Herz in Schulzendorf getöpfert • ✨ Handarbeit • 0 Cookies</div>
+      </div>
+    </footer>
+
+    <!-- Impressum -->
+    <section id="impressum" class="container" style="padding:16px 0 24px">
+      <h2>Impressum</h2>
+      <p><strong>Jessica Mehnert</strong><br>
+      Riesaer Str. 12<br>
+      15732 Schulzendorf<br>
+      Deutschland</p>
+      <p>E‑Mail: <a href="mailto:jessica@flowing-harmony.de">jessica@flowing-harmony.de</a></p>
+      <p class="hint">Hinweis: Private Webseite (Galerie ohne Verkauf). Keine Cookies, keine Tracking‑Dienste. Bilder und Texte © Jessica Mehnert.</p>
+    </section>
+  </div>
+
+  <!-- Lightbox -->
+  <dialog id="dlg">
+    <div class="lightbox">
+      <button class="close" onclick="closeLightbox()" aria-label="Schließen">✕</button>
+      <img id="dlgImg" alt="Großansicht" />
+      <div class="info" id="dlgInfo"></div>
+    </div>
+  </dialog>
+
+  <!-- Floating Edit‑Toolbar -->
+  <div class="editbar" id="editbar">
+    <input type="file" id="fileInput" accept="image/*" hidden />
+    <button onclick="addCard()">+ Bild</button>
+    <button class="secondary" onclick="toggleEditable(false)">Sperren</button>
+    <button onclick="saveHtml()">Seite speichern</button>
+  </div>
+
+  <script>
+    const yearEl = document.getElementById('year'); yearEl.textContent = new Date().getFullYear();
+    const dlg = document.getElementById('dlg');
+    const dlgImg = document.getElementById('dlgImg');
+    const dlgInfo = document.getElementById('dlgInfo');
+
+    function openLightbox(img){ dlgImg.src = img.src; dlgImg.alt = img.alt || 'Großansicht'; dlgInfo.textContent = img.alt || ''; dlg.showModal(); }
+    function closeLightbox(){ dlg.close(); }
+    dlg.addEventListener('click', (e)=>{ const rect = dlg.querySelector('.lightbox').getBoundingClientRect();
+      const inDialog = rect.top <= e.clientY && e.clientY <= rect.top + rect.height && rect.left <= e.clientX && e.clientX <= rect.left + rect.width;
+      if(!inDialog) closeLightbox();
+    });
+
+    // --- Einfacher Handy‑Editor ---
+    const qs = new URLSearchParams(location.search);
+    const EDIT_KEY = 'harmonie-2025'; // nur wer ?edit=harmonie-2025 anhängt, kann bearbeiten
+    const editMode = qs.get('edit') === EDIT_KEY;
+    const editables = () => document.querySelectorAll('[contenteditable]');
+    const editbar = document.getElementById('editbar');
+
+    function toggleEditable(on=true){
+      editables().forEach(el => el.setAttribute('contenteditable', on ? 'true' : 'false'));
+      editbar.style.display = on ? 'flex' : 'none';
+      if(on){
+        // visuelle Hilfe
+        editables().forEach(el => { el.style.outline = '1px dashed rgba(0,0,0,.15)'; el.style.outlineOffset='2px'; });
+      } else {
+        editables().forEach(el => { el.style.outline = 'none'; });
+      }
+    }
+
+    if(editMode) toggleEditable(true);
+
+    // Neues Werk hinzufügen (Foto direkt mit dem Handy aufnehmen oder aus Galerie wählen)
+    function addCard(){
+      const input = document.getElementById('fileInput');
+      input.onchange = async (e) => {
+        const file = e.target.files && e.target.files[0];
+        if(!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          const url = reader.result; // data URL, wird in die HTML gespeichert
+          const card = document.createElement('article');
+          card.className = 'card';
+          card.innerHTML = `
+            <figure>
+              <img loading="lazy" src="${url}" alt="Neues Werk" onclick="openLightbox(this)"/>
+            </figure>
+            <div class="text">
+              <h3 contenteditable="true">Titel des Werks</h3>
+              <p contenteditable="true">Material / Maße / Glasur</p>
+              <div class="tags"><span class="tag" contenteditable="true">Tag</span></div>
+            </div>`;
+          document.getElementById('galerie').prepend(card);
+        };
+        reader.readAsDataURL(file);
+        // Reset für nächstes Bild
+        e.target.value = '';
+      };
+      input.click();
+    }
+
+    // Speichert die aktuelle Seite als neue HTML-Datei (Download), die du dann einfach hochladen kannst (Netlify Drop, Hoster, etc.)
+    function saveHtml(){
+      // Alle Edit-Rahmen entfernen
+      editables().forEach(el => el.style.outline = 'none');
+      const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'index.html'; a.click();
+      URL.revokeObjectURL(url);
+      // Nach dem Speichern wieder anzeigen
+      if(editMode) editables().forEach(el => { el.style.outline = '1px dashed rgba(0,0,0,.15)'; el.style.outlineOffset='2px'; });
+    }
+  </script>
+</body>
+</html>
