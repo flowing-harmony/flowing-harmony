@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Flowing Harmony – Keramik von Jessica Mehnert</title>
   <meta name="description" content="Flowing Harmony – Handgetöpferte Keramik von Jessica Mehnert. Galerie mit Fotos und kurzen Beschreibungen, ohne Shop.">
@@ -234,5 +235,18 @@
       if(editMode) editables().forEach(el => { el.style.outline = '1px dashed rgba(0,0,0,.15)'; el.style.outlineOffset='2px'; });
     }
   </script>
+  <script>
+  // Identity initialisieren, damit Einladungs-Links mit #recovery_token erkannt werden
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
