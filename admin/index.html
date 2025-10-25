@@ -3,7 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <title>Flowing Harmony – Admin</title>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Netlify Identity Widget (Login/Logout UI) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.3.0/dist/decap-cms.js"></script>
   </head>
-  <body></body>
+  <body>
+    <script>
+      // Falls noch kein User initialisiert ist, öffne automatisch die Login-Box
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.open("login");
+          }
+        });
+        // Nach Login neu laden, damit Decap CMS Zugriff hat
+        window.netlifyIdentity.on("login", () => window.location.reload());
+        window.netlifyIdentity.on("logout", () => window.location.reload());
+      }
+    </script>
+  </body>
 </html>
